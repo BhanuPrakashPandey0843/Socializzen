@@ -1,0 +1,9 @@
+.wave-divider {
+  /* Wave shape using smoother radial gradient */
+  -webkit-mask-image: radial-gradient(circle at 50% 100%, #fdfdfd 45%, transparent 46%);
+  -webkit-mask-repeat: repeat-x;
+  -webkit-mask-size: 60px 100%;
+  mask-image: radial-gradient(circle at 50% 100%, #f5efef 45%, transparent 46%);
+  mask-repeat: repeat-x;
+  mask-size: 60px 100%;
+}
