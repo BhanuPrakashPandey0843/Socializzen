@@ -1,11 +1,11 @@
-import Navbar from "./pages/Navbar";
-import Footer from "./pages/Footer";
-import Testimonials from "./pages/Testimonials";
-import ClassesSection from "./pages/ClassesSection";
-import WaveDivider from "./pages/WaveDivider";
-import WaveDividerbottom from "./pages/WaveDividerbottom";
-import Hero from "./pages/Hero";
-import HeroCapsules from "./pages/HeroCapsules"
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Testimonials from "./components/Testimonials";
+import ClassesSection from "./components/ClassesSection";
+import WaveDivider from "./components/WaveDivider";
+import WaveDividerbottom from "./components/WaveDividerbottom";
+import Hero from "./components/Hero";
+import HeroCapsules from "./components/HeroCapsules"
 export default function HomePage() {
   return (
     <>
