@@ -1,49 +1,105 @@
-'use client'
+'use client';
 
-import React from 'react'
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import './Hero.css'; // Assuming you place the custom CSS in Hero.css
+
+const images = [
+  'https://img.freepik.com/premium-photo/happy-beautiful-young-girl-orange-background_1154721-184.jpg',
+  'https://static.vecteezy.com/system/resources/previews/025/039/370/non_2x/woman-fashion-happy-beautiful-style-studio-young-yellow-trendy-emotion-stylish-photo.jpg',
+  'https://tse1.explicit.bing.net/th/id/OIP.TV9q1YPZwH25DeQXqz4jOgHaE8?w=1000&h=667&rs=1&pid=ImgDetMain&o=7&rm=3',
+  'https://tse1.explicit.bing.net/th/id/OIP.V1RqF-BkNBu1Oe0WKhLhZAHaLI?rs=1&pid=ImgDetMain&o=7&rm=3'
+];
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-[#9F86BD] via-[#A855F7] to-[#573F72] flex items-center justify-center px-6 md:px-20 py-32 text-white overflow-hidden font-sans">
-
-      {/* Decorative Floating Blobs */}
-      <div className="absolute top-[-150px] left-[-100px] w-[400px] h-[400px] bg-pink-400 opacity-30 blur-[120px] rounded-full z-0 animate-blob animation-delay-2000" />
-      <div className="absolute bottom-[-100px] right-[-100px] w-[350px] h-[350px] bg-yellow-300 opacity-20 blur-[100px] rounded-full z-0 animate-blob animation-delay-4000" />
-      <div className="absolute top-[40%] right-[30%] w-[200px] h-[200px] bg-purple-200 opacity-20 blur-[90px] rounded-full z-0 animate-blob" />
-
-      {/* Main Content */}
-      <div className="relative z-10 text-center max-w-6xl mx-auto space-y-10">
-        
-        {/* Brand Badge */}
-        <div className="inline-block bg-white/10 backdrop-blur-md border border-white/20 text-sm md:text-base text-white font-semibold px-6 py-2 rounded-full shadow-lg uppercase tracking-widest transition hover:scale-105">
-          🚀 Socializzen
-        </div>
-
-        {/* Hero Heading */}
-        <h1 className="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight bg-gradient-to-r from-[#F9D326] via-white to-[#A855F7] text-transparent bg-clip-text drop-shadow-2xl">
-          Transform Your Brand's Presence
-          <br />
-          Into a Viral Phenomenon
+    <section className="relative overflow-hidden py-20 bg-white">
+      <motion.div
+        initial={{ opacity: 0, y: 60 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.2 }}
+        className="text-center px-4 md:px-8"
+      >
+        <h1 className="text-4xl md:text-5xl font-semibold leading-snug text-gray-800">
+          We design{' '}
+          <motion.span
+            initial={{ color: '#000' }}
+            animate={{ color: '#ff4c29' }}
+            transition={{ repeat: Infinity, duration: 3, repeatType: 'mirror' }}
+            className="font-bold"
+          >
+            Strong visual
+          </motion.span>{' '}
+          <br></br>
+          and digital products:)
         </h1>
-
-        {/* Subheading */}
-        <p className="text-white/80 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto font-light">
-          We help your brand get noticed, loved, and shared. From content to campaigns — we craft digital stories that convert.
+        <p className="text-gray-600 text-sm md:text-base mt-3 max-w-xl mx-auto">
+          Working on your ideas to draw a smile on the face of <br></br>your users worldwide
         </p>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-          <button className="inline-flex items-center gap-3 bg-[#F9D326] text-black font-bold px-8 py-4 rounded-full shadow-xl hover:scale-105 hover:shadow-yellow-400/50 transition duration-300">
-            Get Started
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-          <button className="inline-flex items-center gap-3 bg-white/10 text-white px-8 py-4 rounded-full border border-white/30 hover:bg-white/20 transition duration-300 backdrop-blur-lg">
-            Watch Demo
+        {/* Custom Fancy Button */}
+        <div className="mt-8 flex justify-center">
+          <button type="button" className="button">
+            <span className="fold"></span>
+
+            <div className="points_wrapper">
+              <i className="point"></i>
+              <i className="point"></i>
+              <i className="point"></i>
+              <i className="point"></i>
+              <i className="point"></i>
+              <i className="point"></i>
+              <i className="point"></i>
+              <i className="point"></i>
+              <i className="point"></i>
+              <i className="point"></i>
+            </div>
+
+            <span className="inner">
+              <svg
+                className="icon"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2.5"
+              >
+                <polyline points="13.18 1.37 13.18 9.64 21.45 9.64 10.82 22.63 10.82 14.36 2.55 14.36 13.18 1.37" />
+              </svg>
+              Connect Us
+            </span>
           </button>
         </div>
+      </motion.div>
+
+      {/* Sparkle animation */}
+      <div className="absolute -top-10 left-10 w-40 h-40 bg-blue-100 rounded-full opacity-20 blur-3xl animate-pulse"></div>
+      <div className="absolute top-0 right-20 w-32 h-32 bg-pink-100 rounded-full opacity-20 blur-3xl animate-ping"></div>
+
+      {/* Image carousel */}
+      <div className="flex justify-center gap-4 mt-14 px-4 flex-wrap md:flex-nowrap">
+        {images.map((src, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: i * 0.2 }}
+            className="w-44 h-64 rounded-full overflow-hidden shadow-xl border border-gray-200"
+          >
+            <Image
+              src={src}
+              alt={`hero-${i}`}
+              width={300}
+              height={400}
+              className="object-cover w-full h-full"
+              unoptimized
+            />
+          </motion.div>
+        ))}
       </div>
     </section>
-  )
+  );
 }
