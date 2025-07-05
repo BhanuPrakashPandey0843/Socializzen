@@ -37,7 +37,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 
 git add .
-git commit -m "made the file structure good"
+git commit -m "made the structure structure of hero section"
 git push origin master
 
 npm install framer-motion
