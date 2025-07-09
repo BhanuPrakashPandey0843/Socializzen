@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fontsource/bebas-neue": "^5.2.6",
+    "@lottiefiles/dotlottie-react": "^0.14.2",
     "@react-three/drei": "^10.3.0",
     "@react-three/fiber": "^9.1.2",
     "framer-motion": "^12.23.0",
@@ -20,6 +21,7 @@
     "react-dom": "^19.0.0",
     "react-hot-toast": "^2.5.2",
     "react-icons": "^5.5.0",
+    "swiper": "^11.2.10",
     "three": "^0.177.0"
   },
   "devDependencies": {

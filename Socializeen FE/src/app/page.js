@@ -12,6 +12,7 @@ import Testimonials from "./components/Testimonials/Testimonials"
 export default function HomePage() {
   return (
     <>
+
       <Navbar />
       <Hero />
     
