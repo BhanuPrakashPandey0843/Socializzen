@@ -8,6 +8,7 @@ import Hero from "./components/Hero";
 import HowItOperates from "./components/HowItOperates/HowItOperates"
 import Testimonials from "./components/Testimonials/Testimonials"
 import AboutSection from "./components/AboutSection/AboutSection";
+import GoToTop from "./components/GoToTop/GoToTop";
 
 export default function HomePage() {
   return (
@@ -22,6 +23,7 @@ export default function HomePage() {
         
         <Testimonials />
         <HomeServiceBanner />
+        <GoToTop />
      
       <Footer />
     </>

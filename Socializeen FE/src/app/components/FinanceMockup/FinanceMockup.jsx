@@ -7,45 +7,51 @@ import Leftimage from "./LeftPhone.png";
 
 const FinanceMockup = () => {
   return (
-    <div className="relative w-full min-h-screen overflow-hidden font-sans">
+    <div className="relative w-full min-h-[80vh] overflow-hidden font-sans isolate">
       {/* Top Half - White */}
       <div className="absolute top-0 left-0 w-full h-1/2 bg-white z-0" />
 
       {/* Bottom Half - Gradient */}
       <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-r from-[#A38FC2] via-[#9F86BD] to-[#7654A0] z-0" />
 
-      {/* Center Container with Motion */}
-      <section className="relative z-10 flex items-center justify-center pt-24 pb-12 px-2">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative w-full max-w-6xl p-[2px] rounded-3xl bg-gradient-to-tr from-[#A38FC2] via-[#9F86BD] to-[#7F5EA5] shadow-2xl"
-        >
-          <div className="bg-white/70 backdrop-blur-2xl rounded-[inherit] p-6 md:p-10 flex justify-center items-end gap-0 overflow-visible relative">
-            {/* Left Phone */}
-            <img
-              src={Leftimage.src}
-              alt="Left Phone Mockup"
-              className="w-[18rem] md:w-[22rem] lg:w-[26rem] h-auto object-contain -translate-y-24 -translate-x-6 scale-95"
-            />
+      {/* Center Container */}
+   {/* Center Container */}
+<section className="relative z-10 flex items-center justify-center px-4 pt-4 pb-2">
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, ease: "easeOut" }}
+    className="relative w-full max-w-5xl mx-auto p-[2px] rounded-3xl bg-gradient-to-tr from-[#A38FC2] via-[#9F86BD] to-[#7F5EA5] shadow-2xl"
+  >
+    <div className="bg-white/70 backdrop-blur-2xl rounded-[inherit] px-4 py-3 md:px-8 md:py-4 flex justify-center items-end gap-0 overflow-visible relative">
+      
+      {/* Left Phone - Scaled to 1.5x */}
+      <img
+        src={Leftimage.src}
+        alt="Left Phone Mockup"
+        className="w-[27rem] md:w-[33rem] lg:w-[39rem] h-auto object-contain -translate-y-16 -translate-x-4"
+      />
 
-            {/* Middle Phone */}
-            <img
-              src={Middleimage.src}
-              alt="Middle Phone Mockup"
-              className="w-[12rem] md:w-[16rem] lg:w-[20rem] h-auto object-contain z-10 -translate-y-32 scale-110"
-            />
+      {/* Middle Phone */}
+      <div className="relative z-10 -translate-y-24 scale-105">
+        <img
+          src={Middleimage.src}
+          alt="Middle Phone Mockup"
+          className="w-[11rem] md:w-[14rem] lg:w-[17rem] h-auto object-contain"
+        />
+      </div>
 
-            {/* Right Phone */}
-            <img
-              src={RightPhone.src}
-              alt="Right Phone Mockup"
-              className="w-[18rem] md:w-[22rem] lg:w-[26rem] h-auto object-contain -translate-y-24 translate-x-6 scale-95"
-            />
-          </div>
-        </motion.div>
-      </section>
+      {/* Right Phone - Scaled to 1.5x */}
+      <img
+        src={RightPhone.src}
+        alt="Right Phone Mockup"
+        className="w-[27rem] md:w-[33rem] lg:w-[39rem] h-auto object-contain -translate-y-16 translate-x-4"
+      />
+    </div>
+  </motion.div>
+</section>
+
+
     </div>
   );
 };
