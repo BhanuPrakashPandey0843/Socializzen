@@ -7,7 +7,7 @@ import FinanceMockup from "./components/FinanceMockup/FinanceMockup"
 import Hero from "./components/Hero";
 import HowItOperates from "./components/HowItOperates/HowItOperates"
 import Testimonials from "./components/Testimonials/Testimonials"
-
+import AboutSection from "./components/AboutSection/AboutSection";
 
 export default function HomePage() {
   return (
@@ -15,6 +15,7 @@ export default function HomePage() {
 
       <Navbar />
       <Hero />
+      <AboutSection />
     
       <FinanceMockup />
       <HowItOperates />

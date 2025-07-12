@@ -51,3 +51,18 @@ canvas {
 .animate-fade-in-up {
   animation: fade-in-up 1.2s ease-out forwards;
 }
+
+@layer utilities {
+  .animate-scroll {
+    animation: scroll-left 18s linear infinite; /* faster scroll */
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
