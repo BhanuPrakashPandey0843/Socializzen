@@ -66,3 +66,9 @@ canvas {
     }
   }
 }
+@font-face {
+  font-family: 'Atrust';
+  src: url('/fonts/Atrust.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

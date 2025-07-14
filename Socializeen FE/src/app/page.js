@@ -1,6 +1,6 @@
 
 
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer";
 import HomeServiceBanner from "./components/HomeServiceBanner/HomeServiceBanner"
 import FinanceMockup from "./components/FinanceMockup/FinanceMockup"
