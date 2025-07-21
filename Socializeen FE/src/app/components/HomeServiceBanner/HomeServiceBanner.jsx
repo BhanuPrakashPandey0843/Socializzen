@@ -55,10 +55,10 @@ export default function HomeServiceBanner() {
 
   return (
     <div className="bg-white px-4 py-10 sm:px-6 md:py-16">
-      <section className="home-banner relative flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-[#A38FC2] via-[#9F86BD] to-[#7654A0] px-4 sm:px-6 lg:px-12 py-10 md:py-16 text-white overflow-hidden rounded-3xl max-w-7xl mx-auto shadow-2xl transition-all duration-700 ease-in-out">
+      <section className="home-banner relative flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-px-4 sm:px-6 lg:px-12 py-10 md:py-16 text-white overflow-hidden rounded-3xl max-w-7xl mx-auto shadow-2xl transition-all duration-700 ease-in-out">
 
         {/* Left Content */}
-        <div className="fade-in w-full max-w-xl text-center md:text-left space-y-6 z-10">
+        <div className="fade-in w-full max-w-xl text-cen[#A38FC2] via-[#9F86BD] to-[#7654A0] ter md:text-left space-y-6 z-10">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight">
             One app for <span className="text-[#E3D4F3]">fast, trusted</span><br />
             home service booking
