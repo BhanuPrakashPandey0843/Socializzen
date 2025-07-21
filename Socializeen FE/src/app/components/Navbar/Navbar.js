@@ -11,14 +11,16 @@ import {
   Briefcase,
   Layers,
   Users,
+  Mail
 } from 'lucide-react';
 
+// ✅ Updated navItems with proper Next.js paths
 const navItems = [
-  { name: 'Home', icon: <Home className="mr-2 text-[#7654A0]" /> },
-  { name: 'About', icon: <Info className="mr-2 text-[#7654A0]" /> },
-  { name: 'Services', icon: <Briefcase className="mr-2 text-[#7654A0]" /> },
-  { name: 'Our Work', icon: <Layers className="mr-2 text-[#7654A0]" /> },
-  { name: 'Careers', icon: <Users className="mr-2 text-[#7654A0]" /> },
+  { name: 'Home', path: '/', icon: <Home className="mr-2 text-[#7654A0]" /> },
+  { name: 'About', path: '/about', icon: <Info className="mr-2 text-[#7654A0]" /> },
+  { name: 'Our Work', path: '/ourwork', icon: <Layers className="mr-2 text-[#7654A0]" /> },
+  { name: 'Careers', path: '/careers', icon: <Users className="mr-2 text-[#7654A0]" /> },
+
 ];
 
 const Navbar = () => {
@@ -33,6 +35,7 @@ const Navbar = () => {
       className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-sm px-4 md:px-8 py-2"
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
+        {/* Logo */}
         <Link href="/">
           <motion.div whileHover={{ scale: 1.05 }} className="cursor-pointer">
             <h1 className="text-2xl md:text-2xl font-bold tracking-tight text-[#7654A0] font-[Atrust]">
@@ -41,6 +44,7 @@ const Navbar = () => {
           </motion.div>
         </Link>
 
+        {/* ✅ Desktop Navigation */}
         <div className="hidden md:flex flex-1 justify-center items-center space-x-6 font-medium text-sm tracking-tight">
           {navItems.map((item, index) => (
             <motion.div
@@ -48,7 +52,7 @@ const Navbar = () => {
               whileHover={{ y: -2 }}
               className="relative cursor-pointer group"
             >
-              <Link href={`#${item.name.toLowerCase().replace(/\s+/g, '')}`} className="text-gray-800 hover:text-[#7654A0]">
+              <Link href={item.path} className="text-gray-800 hover:text-[#7654A0]">
                 {item.name}
               </Link>
               <motion.span
@@ -59,27 +63,31 @@ const Navbar = () => {
           ))}
         </div>
 
+        {/* ✅ Desktop "Connect Us" Button → Goes to /contact */}
         <div className="hidden md:flex justify-end">
-          <motion.button
-            type="button"
-            whileHover={{ scale: 1.05 }}
-            className="button"
-          >
-            <span className="fold"></span>
-            <div className="points_wrapper">
-              {[...Array(10)].map((_, i) => (
-                <i key={i} className="point"></i>
-              ))}
-            </div>
-            <span className="inner">
-              <svg className="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <polyline points="13.18 1.37 13.18 9.64 21.45 9.64 10.82 22.63 10.82 14.36 2.55 14.36 13.18 1.37" />
-              </svg>
-              Connect Us
-            </span>
-          </motion.button>
+          <Link href="/contact">
+            <motion.button
+              type="button"
+              whileHover={{ scale: 1.05 }}
+              className="button"
+            >
+              <span className="fold"></span>
+              <div className="points_wrapper">
+                {[...Array(10)].map((_, i) => (
+                  <i key={i} className="point"></i>
+                ))}
+              </div>
+              <span className="inner">
+                <svg className="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <polyline points="13.18 1.37 13.18 9.64 21.45 9.64 10.82 22.63 10.82 14.36 2.55 14.36 13.18 1.37" />
+                </svg>
+                Connect Us
+              </span>
+            </motion.button>
+          </Link>
         </div>
 
+        {/* ✅ Mobile Menu Button */}
         <div className="md:hidden z-50">
           <button onClick={() => setMenuOpen(true)} className="focus:outline-none">
             <svg className="w-7 h-7 text-[#7654A0]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -89,6 +97,7 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* ✅ Mobile Menu Overlay */}
       <AnimatePresence>
         {menuOpen && (
           <>
@@ -100,6 +109,7 @@ const Navbar = () => {
               onClick={() => setMenuOpen(false)}
             />
 
+            {/* ✅ Mobile Side Nav */}
             <motion.div
               key="side-nav"
               initial={{ x: '100%' }}
@@ -116,7 +126,7 @@ const Navbar = () => {
                 </button>
               </div>
 
-              {/* Mobile Logo - fast loading */}
+              {/* ✅ Mobile Logo */}
               <div className="flex justify-center mb-4">
                 <Image
                   src={NavbarImg}
@@ -128,7 +138,7 @@ const Navbar = () => {
                 />
               </div>
 
-              {/* Mobile Nav Items */}
+              {/* ✅ Mobile Nav Items */}
               <motion.div
                 className="mt-2 flex flex-col gap-4 text-lg font-semibold text-[#333]"
                 initial="hidden"
@@ -149,7 +159,7 @@ const Navbar = () => {
                       visible: { opacity: 1, x: 0 },
                     }}
                   >
-                    <Link href={`#${item.name.toLowerCase().replace(/\s+/g, '')}`} onClick={handleLinkClick}>
+                    <Link href={item.path} onClick={handleLinkClick}>
                       <div className="py-3 px-4 flex items-center rounded-xl hover:bg-[#f2e9fd] transition-all shadow-sm border border-[#dad2f3]/40 bg-[#fdfbff] backdrop-blur-sm">
                         {React.cloneElement(item.icon, { size: 26 })}
                         {item.name}
@@ -159,24 +169,26 @@ const Navbar = () => {
                 ))}
               </motion.div>
 
-              {/* Connect Us Button */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                className="button w-full mt-8 mb-2"
-              >
-                <span className="fold"></span>
-                <div className="points_wrapper">
-                  {[...Array(10)].map((_, i) => (
-                    <i key={i} className="point"></i>
-                  ))}
-                </div>
-                <span className="inner">
-                  <svg className="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <polyline points="13.18 1.37 13.18 9.64 21.45 9.64 10.82 22.63 10.82 14.36 2.55 14.36 13.18 1.37" />
-                  </svg>
-                  Connect Us
-                </span>
-              </motion.button>
+              {/* ✅ Mobile "Connect Us" Button → Goes to /contact */}
+              <Link href="/contact" onClick={handleLinkClick}>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  className="button w-full mt-8 mb-2"
+                >
+                  <span className="fold"></span>
+                  <div className="points_wrapper">
+                    {[...Array(10)].map((_, i) => (
+                      <i key={i} className="point"></i>
+                    ))}
+                  </div>
+                  <span className="inner">
+                    <svg className="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <polyline points="13.18 1.37 13.18 9.64 21.45 9.64 10.82 22.63 10.82 14.36 2.55 14.36 13.18 1.37" />
+                    </svg>
+                    Connect Us
+                  </span>
+                </motion.button>
+              </Link>
             </motion.div>
           </>
         )}

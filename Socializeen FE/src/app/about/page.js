@@ -1,7 +1,9 @@
+'use client';
+
 import React from 'react'
-import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer";
-import GoToTop from "./components/GoToTop/GoToTop";
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer";
+import GoToTop from "../components/GoToTop/GoToTop";
 const about = () => {
   return (
     <div>
