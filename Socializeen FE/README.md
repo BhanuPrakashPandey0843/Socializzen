@@ -41,3 +41,8 @@ git commit -m "made the structure structure of hero section"
 git push origin master
 
 npm install framer-motion
+
+
+
+
+about :   https://www.behance.net/gallery/228405235/Crypto-landing-page-UIUX?tracking_source=search_projects|meme+ui&l=6

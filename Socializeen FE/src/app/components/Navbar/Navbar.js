@@ -19,7 +19,7 @@ const navItems = [
   { name: 'Home', path: '/', icon: <Home className="mr-2 text-[#7654A0]" /> },
   { name: 'About', path: '/about', icon: <Info className="mr-2 text-[#7654A0]" /> },
   { name: 'Our Work', path: '/ourwork', icon: <Layers className="mr-2 text-[#7654A0]" /> },
-  { name: 'Careers', path: '/careers', icon: <Users className="mr-2 text-[#7654A0]" /> },
+  { name: 'Services', path: '/careers', icon: <Users className="mr-2 text-[#7654A0]" /> },
 
 ];
 

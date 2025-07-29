@@ -67,7 +67,7 @@ const OurWorkHero = () => {
           // Enhanced stair logic for more lift on sides
           if (position === 0 || position === 5) marginTopClass = '-mt-50';     // outer
           else if (position === 1 || position === 4) marginTopClass = '-mt-30'; // mid-outer
-          else marginTopClass = 'mt-0';                                        // center
+          else marginTopClass = 'mt-0';                                        
 
           return (
             <motion.div 

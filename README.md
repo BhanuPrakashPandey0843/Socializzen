@@ -17,5 +17,10 @@ https://www.behance.net/gallery/226254819/Futuristic-AI-Powered-Crypto-Automatio
 
 
 git add . 
-git commit -m "added the contact hero compoenent"
+git commit -m "added the ourwork hero compoenent"
 git push origin master 
+
+
+
+
+use react next js tailwind css fraem  motion to mae this component as it is there in the image 
