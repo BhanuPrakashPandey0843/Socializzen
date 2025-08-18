@@ -6,7 +6,7 @@ import OurWorkHero from "../components/OurWorkHero/OurWorkHero";
 import ProjectsShowcase from "../components/ProjectsShowcase/ProjectsShowcase";
 import HomeServiceBanner from "../components/HomeServiceBanner/HomeServiceBanner";
 import Testimonials from "../components/Testimonials/Testimonials";
-
+import OurVideos from "../components/Our-videos/our-videos";
 import Footer from "../components/Footer";
 import GoToTop from "../components/GoToTop/GoToTop";
 const ourwork = () => {
@@ -17,7 +17,7 @@ const ourwork = () => {
               <ProjectsShowcase />
               
               <Testimonials />
-              
+              <OurVideos />
               <HomeServiceBanner />
       <GoToTop />
       <Footer />

@@ -1,5 +1,6 @@
 'use client';
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const images = [
   'https://wallpaperaccess.com/full/2858973.jpg',
@@ -29,6 +30,8 @@ const categories = [
 ];
 
 const OurWorkHero = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   return (
     <div className="bg-white py-12 md:py-20 px-4 md:px-12 lg:px-20 min-h-screen">
       {/* Header */}
@@ -53,7 +56,7 @@ const OurWorkHero = () => {
         </motion.button>
       </motion.div>
 
-      {/* Wallpaper Grid with Enhanced Stair Pattern */}
+      {/* Wallpaper Grid */}
       <motion.div 
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -64,16 +67,15 @@ const OurWorkHero = () => {
           const position = index % 6;
           let marginTopClass = '';
 
-          // Enhanced stair logic for more lift on sides
-          if (position === 0 || position === 5) marginTopClass = '-mt-50';     // outer
-          else if (position === 1 || position === 4) marginTopClass = '-mt-30'; // mid-outer
-          else marginTopClass = 'mt-0';                                        
+          if (position === 0 || position === 5) marginTopClass = '-mt-50';
+          else if (position === 1 || position === 4) marginTopClass = '-mt-30';
+          else marginTopClass = 'mt-0';
 
           return (
             <motion.div 
               key={index}
-              whileHover={{ y: -5 }}
-              className={`rounded-3xl overflow-hidden shadow-lg bg-gray-100 transition-all duration-300 ${marginTopClass}`}
+              className={`rounded-3xl overflow-hidden shadow-lg bg-gray-100 cursor-pointer transition-all duration-300 ${marginTopClass}`}
+              onClick={() => setSelectedImage(img)}
             >
               <div 
                 className="h-44 sm:h-56 md:h-64 bg-cover bg-center"
@@ -86,6 +88,28 @@ const OurWorkHero = () => {
           );
         })}
       </motion.div>
+
+      {/* Fullscreen Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div 
+            className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+          >
+            <motion.img 
+              src={selectedImage} 
+              alt="Wallpaper" 
+              className="max-h-[90%] max-w-[90%] rounded-xl shadow-2xl"
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.8 }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
