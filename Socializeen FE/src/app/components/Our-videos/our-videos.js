@@ -1,117 +1,120 @@
 'use client';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 
-const API_KEY = "YOUR_API_KEY_HERE"; // Replace with your API key
-const CHANNEL_ID = "UCxxxxxxxxxxxxxxxx"; // Replace with actual Channel ID
+const shortsLinks = [
+  "https://www.youtube.com/shorts/RJSLV2fb3hI",
+  "https://www.youtube.com/shorts/MJmjNrvYEPo",
+  "https://www.youtube.com/shorts/0lAiswBm2Ec",
+  "https://www.youtube.com/shorts/xmctxBUux2c",
+  "https://www.youtube.com/shorts/OtL9Qelqq6A",
+  "https://www.youtube.com/shorts/I7fZbbYj5dQ",
+  "https://www.youtube.com/shorts/N8djkUJGH3k",
+  "https://www.youtube.com/shorts/JmZZd_jvr6w",
+  "https://www.youtube.com/shorts/JjsaKL34RUY",
+  "https://www.youtube.com/shorts/FHp5GGOIyzM",
+  "https://www.youtube.com/shorts/Ef4XA7D4bJM",
+  "https://www.youtube.com/shorts/qiQ3PGPjysI",
+  "https://www.youtube.com/shorts/k71jcGmzEK4",
+  "https://www.youtube.com/shorts/qqdRvVQbl9s",
+  "https://www.youtube.com/shorts/FajOX8-BaJA",
+  "https://www.youtube.com/shorts/3jA9itJ1q7c",
+  "https://www.youtube.com/shorts/O1M_MvaJ2EE",
+  "https://www.youtube.com/shorts/AkOLLK8wKUg",
+  "https://www.youtube.com/shorts/XpQiTdmGcOw",
+  "https://www.youtube.com/shorts/5hrGV6Xjvqk",
+];
 
-const OurVideos = () => {
-  const [videos, setVideos] = useState([]);
-  const [visibleCount, setVisibleCount] = useState(4);
+// helper to convert Shorts link → embed url
+const toEmbedUrl = (url) => {
+  const id = url.split("/shorts/")[1];
+  return `https://www.youtube.com/embed/${id}?rel=0&modestbranding=1`;
+};
+
+export default function OurVideos() {
+  const [visibleCount, setVisibleCount] = useState(8);
 
   const handleLoadMore = () => {
-    setVisibleCount(prev => prev + 4);
+    setVisibleCount((prev) => prev + 4);
   };
 
-  useEffect(() => {
-    const fetchVideos = async () => {
-      try {
-        // Step 1: Get Uploads Playlist ID
-        const channelRes = await fetch(
-          `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${CHANNEL_ID}&key=${API_KEY}`
-        );
-        const channelData = await channelRes.json();
-        const uploadsPlaylistId =
-          channelData.items[0].contentDetails.relatedPlaylists.uploads;
-
-        // Step 2: Get Videos from Playlist
-        const videosRes = await fetch(
-          `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=20&key=${API_KEY}`
-        );
-        const videosData = await videosRes.json();
-
-        const videoCards = videosData.items.map((item) => ({
-          id: item.snippet.resourceId.videoId,
-          name: item.snippet.title,
-          type: "youtube",
-          url: `https://www.youtube.com/embed/${item.snippet.resourceId.videoId}?rel=0&modestbranding=1`,
-          caption: item.snippet.description.slice(0, 100) || "No description provided.",
-          bgColor: "bg-yellow-100"
-        }));
-
-        setVideos(videoCards);
-      } catch (error) {
-        console.error("Failed to fetch videos:", error);
-      }
-    };
-
-    fetchVideos();
-  }, []);
-
   return (
-    <section className="relative bg-white text-black px-6 md:px-16 py-20 font-sans overflow-hidden">
-      {/* Intro Section */}
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 relative z-10">
+    <section className="relative bg-gradient-to-b from-white to-gray-50 text-black px-6 md:px-16 py-24 font-sans overflow-hidden">
+      
+      {/* --- Intro Section --- */}
+      <motion.div 
+        className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 relative z-10 items-center"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+      >
         <div>
-          <p className="text-gray-500 text-sm mb-2">About us</p>
+          <p className="text-gray-500 text-sm tracking-wide uppercase mb-3">Our Shorts</p>
           <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-            Empowering Brands with Smarter Social Strategies
+            Engaging <span style={{ color: "#7a5af8" }}>YouTube Shorts</span>
           </h1>
         </div>
-        <div className="text-sm text-gray-500 mt-2 md:mt-10 md:pl-10 leading-relaxed">
+        <motion.div 
+          className="text-base text-gray-600 md:pl-10 leading-relaxed"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
           <p>
-            We help brands grow their digital presence through innovative
-            content, data-driven strategies, and full-service social media
-            management.
+            Explore our curated YouTube Shorts — snackable, impactful content
+            that grabs attention and delivers value in under 60 seconds.
           </p>
-          <p className="mt-2">
-            From crafting viral campaigns to managing your reputation online —
-            we make your brand shine on every platform.
-          </p>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
-      {/* Videos Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 w-full max-w-7xl mx-auto">
-        {videos.slice(0, visibleCount).map((video, index) => (
+      {/* --- Film Strip Background --- */}
+      <div className="absolute top-1/2 left-0 right-0 h-32 bg-[linear-gradient(to_right,#000_10px,transparent_10px)] bg-[length:40px_40px] opacity-5 animate-filmstrip"></div>
+
+      {/* --- Shorts Reel (Scrolling Effect) --- */}
+      <motion.div
+        className="flex gap-8 mt-20 w-max mx-auto"
+        animate={{ x: ["0%", "-50%"] }}
+        transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
+      >
+        {shortsLinks.concat(shortsLinks).slice(0, visibleCount * 2).map((url, index) => (
           <motion.div
-            key={video.id}
-            className="flex flex-col gap-4 w-full"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            key={index}
+            className="flex flex-col gap-3 w-[280px] group"
+            whileHover={{ scale: 1.05, y: -8 }}
           >
-            <div className="rounded-xl overflow-hidden shadow-lg">
+            {/* Video Card */}
+            <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900/70 to-gray-800/40 backdrop-blur-xl shadow-xl hover:shadow-2xl transition-all duration-500 border border-white/10 group-hover:border-purple-400/40">
               <iframe
-                src={video.url}
-                title={video.name}
+                src={toEmbedUrl(url)}
+                title={`short-${index}`}
                 width="100%"
                 height="230"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-                className="w-full"
+                className="w-full rounded-2xl"
               ></iframe>
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-t from-purple-600/30 via-transparent to-transparent"></div>
             </div>
-            <div className={`p-4 rounded-xl shadow-md ${video.bgColor}`}>
-              <p className="text-gray-700 text-sm">{video.caption}</p>
-            </div>
+
+            {/* Caption */}
+            <p className="text-center text-gray-500 text-sm font-medium group-hover:text-purple-400 transition">
+              Short #{index + 1}
+            </p>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
 
-      {/* Load More Button */}
-      {visibleCount < videos.length && (
+      {/* --- Load More Button --- */}
+      {visibleCount < shortsLinks.length && (
         <motion.button
           onClick={handleLoadMore}
-          className="block mx-auto px-6 py-3 mt-10 text-white bg-purple-600 rounded-full shadow-lg hover:bg-purple-700 transition duration-300"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
+          className="block mx-auto px-8 py-3 mt-14 text-white font-medium rounded-full shadow-lg transition duration-300"
+          style={{ backgroundColor: "#7a5af8" }}
+          whileTap={{ scale: 0.96 }}
         >
           Load More
         </motion.button>
       )}
     </section>
   );
-};
-
-export default OurVideos;
+}

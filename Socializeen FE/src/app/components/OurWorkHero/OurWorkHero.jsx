@@ -39,7 +39,7 @@ const OurWorkHero = () => {
         className="text-center mb-12"
       >
         <h1 className="text-5xl md:text-6xl font-bold text-gray-900 font-serif">
-          Wallpaper <span className="text-[#7654A0]">World</span>
+          Our <span className="text-[#7654A0]">Work</span>
         </h1>
         <p className="mt-4 text-[#A38FC2] font-medium">
           50000+ High Resolution 4K Wallpapers
@@ -49,7 +49,7 @@ const OurWorkHero = () => {
           whileTap={{ scale: 0.95 }}
           className="mt-6 px-6 py-3 bg-[#9F86BD] text-white rounded-full text-lg font-semibold shadow-lg"
         >
-          Search Here
+          About Us
         </motion.button>
       </motion.div>
 

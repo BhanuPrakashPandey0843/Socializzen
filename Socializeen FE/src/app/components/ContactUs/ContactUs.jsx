@@ -9,7 +9,7 @@ const ContactUs = () => {
         {/* LEFT SIDE - IMAGE + CONTACT DETAILS */}
         <div className="relative group">
           <img
-            src="https://images.unsplash.com/photo-1551836022-4c4c79ecde4a?auto=format&fit=crop&w=900&q=80"
+            src="https://www.calilio.com/images/get-intouch-with-calilio.jpg"
             alt="Contact"
             className="w-full h-full object-cover brightness-95 group-hover:brightness-100 transition-all duration-500"
           />
@@ -24,8 +24,8 @@ const ContactUs = () => {
                 <span className="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-600 shadow-md">
                   <FiPhone className="text-white text-lg" />
                 </span>
-                <a href="tel:4706011911" className="hover:underline font-medium text-white">
-                  470-601-1911
+                <a href="tel:8910885581" className="hover:underline font-medium text-white">
+                  8910885581
                 </a>
               </div>
 
@@ -35,7 +35,7 @@ const ContactUs = () => {
                   <FiMail className="text-white text-lg" />
                 </span>
                 <a href="mailto:irish-geoff@veilmail.io" className="hover:underline font-medium text-white">
-                  irish-geoff@veilmail.io
+                  Socializzen@gmail.com
                 </a>
               </div>
 
@@ -45,7 +45,7 @@ const ContactUs = () => {
                   <FiMapPin className="text-white text-lg" />
                 </span>
                 <p className="font-medium text-white">
-                  654 Sycamore Avenue, Meadowville, WA 76543
+                  Kolkata, India
                 </p>
               </div>
             </div>

@@ -1,0 +1,125 @@
+Folder PATH listing
+Volume serial number is 8A4D-5FA0
+E:.
+³   .gitignore
+³   eslint.config.mjs
+³   folder-structure.txt
+³   jsconfig.json
+³   next.config.mjs
+³   package-lock.json
+³   package.json
+³   postcss.config.mjs
+³   README.md
+³   
+ÃÄÄÄpublic
+³   ³   Digital.gif
+³   ³   Digitall.gif
+³   ³   file.svg
+³   ³   globe.svg
+³   ³   next.svg
+³   ³   vercel.svg
+³   ³   window.svg
+³   ³   
+³   ÀÄÄÄmodels
+³           phone.glb
+³           phoneleft.glb
+³           
+ÀÄÄÄsrc
+    ÀÄÄÄapp
+        ³   favicon.ico
+        ³   globals.css
+        ³   layout.js
+        ³   page.js
+        ³   
+        ÃÄÄÄabout
+        ³       page.js
+        ³       
+        ÃÄÄÄcareers
+        ³       page.js
+        ³       
+        ÃÄÄÄclients
+        ³       page.js
+        ³       
+        ÃÄÄÄcomponents
+        ³   ³   Footer.js
+        ³   ³   Hero.css
+        ³   ³   Hero.js
+        ³   ³   
+        ³   ÃÄÄÄAboutSection
+        ³   ³       AboutSection.jsx
+        ³   ³       
+        ³   ÃÄÄÄAboutUs
+        ³   ³       AboutUs.js
+        ³   ³       Buttons.css
+        ³   ³       
+        ³   ÃÄÄÄAboutushero
+        ³   ³       Aboutushero.jsx
+        ³   ³       Socializzen logo.png
+        ³   ³       
+        ³   ÃÄÄÄContacthero
+        ³   ³       Contacthero.jsx
+        ³   ³       
+        ³   ÃÄÄÄContactUs
+        ³   ³       ContactUs.jsx
+        ³   ³       
+        ³   ÃÄÄÄFaq
+        ³   ³       Faq.js
+        ³   ³       
+        ³   ÃÄÄÄFeaturesShowcase
+        ³   ³       Digital.gif
+        ³   ³       FeaturesShowcase.js
+        ³   ³       
+        ³   ÃÄÄÄFinanceMockup
+        ³   ³       FinanceMockup.jsx
+        ³   ³       LeftPhone.png
+        ³   ³       MiddlePhone.png
+        ³   ³       RightPhone.png
+        ³   ³       
+        ³   ÃÄÄÄGoToTop
+        ³   ³       GoToTop.js
+        ³   ³       Hero.css
+        ³   ³       
+        ³   ÃÄÄÄHomeServiceBanner
+        ³   ³       HomeServiceBanner.jsx
+        ³   ³       
+        ³   ÃÄÄÄHowItOperates
+        ³   ³       HowItOperates.jsx
+        ³   ³       
+        ³   ÃÄÄÄNavbar
+        ³   ³       Button.css
+        ³   ³       Navbar.js
+        ³   ³       Socializzen Without Bg.png
+        ³   ³       
+        ³   ÃÄÄÄOur-videos
+        ³   ³       our-videos.js
+        ³   ³       
+        ³   ÃÄÄÄOuroffering
+        ³   ³       Ouroffering.js
+        ³   ³       
+        ³   ÃÄÄÄOurWorkHero
+        ³   ³       OurWorkHero.jsx
+        ³   ³       
+        ³   ÃÄÄÄProjectsShowcase
+        ³   ³       ProjectsShowcase.jsx
+        ³   ³       
+        ³   ÃÄÄÄServices
+        ³   ³       Services.js
+        ³   ³       
+        ³   ÃÄÄÄTestimonials
+        ³   ³       Testimonials.jsx
+        ³   ³       
+        ³   ÀÄÄÄVideoSection
+        ³           VideoSection.jsx
+        ³           
+        ÃÄÄÄcontact
+        ³       page.js
+        ³       
+        ÃÄÄÄourwork
+        ³       page.js
+        ³       
+        ÃÄÄÄservices
+        ³       page.js
+        ³       
+        ÀÄÄÄteam
+                page.js
+                

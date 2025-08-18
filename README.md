@@ -17,7 +17,7 @@ https://www.behance.net/gallery/226254819/Futuristic-AI-Powered-Crypto-Automatio
 
 
 git add . 
-git commit -m "added the ourwork hero compoenent"
+git commit -m "added the improved components"
 git push origin master 
 
 

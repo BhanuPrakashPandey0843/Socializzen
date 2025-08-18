@@ -89,7 +89,8 @@ const Navbar = () => {
 
         {/* ✅ Mobile Menu Button */}
         <div className="md:hidden z-50">
-          <button onClick={() => setMenuOpen(true)} className="focus:outline-none">
+          <button onClick={() => setMenuOpen(!menuOpen)} className="focus:outline-none">
+
             <svg className="w-7 h-7 text-[#7654A0]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
