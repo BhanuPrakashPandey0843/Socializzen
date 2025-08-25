@@ -1,162 +1,148 @@
-'use client';
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import {
-  BarChartBig,
-  FileText,
-  Smartphone,
-  BellRing,
-  Link2,
-  Megaphone,
-  Share2,
-  ShieldCheck,
-} from 'lucide-react';
+// Animation Variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
 
 const FeaturesShowcase = () => {
+  const stats = [
+    { platform: "Instagram", value: 90 },
+    { platform: "YouTube", value: 75 },
+    { platform: "LinkedIn", value: 65 },
+    { platform: "Facebook", value: 82 },
+    { platform: "Twitter", value: 58 },
+  ];
+
+  const features = [
+   
+  ];
+
   return (
-    <section className="relative bg-white text-black px-6 md:px-16 py-20 font-sans overflow-hidden space-y-32">
-      {/* Section 1: About Socializen */}
+    <section className="relative bg-gradient-to-b from-white via-gray-50 to-white text-black px-6 md:px-16 py-20 font-sans overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-purple-100 via-transparent to-indigo-100 blur-3xl opacity-60"></div>
+
+      {/* Top Section */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
         viewport={{ once: true }}
-        className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8"
+        className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 relative z-10"
       >
-        <div>
-          <p className="text-pink-600 text-sm mb-2 font-semibold uppercase tracking-wide">
-            About Socializen
-          </p>
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-            Empowering Brands with Smarter Social Strategies
+        <motion.div variants={fadeUp}>
+          <p className="text-gray-500 text-sm mb-2">About Socializzen</p>
+          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6 bg-gradient-to-r from-[#000] bg-clip-text text-transparent">
+            Shaping Digital Identities
           </h1>
-        </div>
-        <div className="text-base text-gray-600 mt-2 md:mt-10 md:pl-10 leading-relaxed">
+        </motion.div>
+
+        <motion.div
+          variants={fadeUp}
+          className="text-sm text-gray-600 mt-2 md:mt-10 md:pl-10 leading-relaxed"
+        >
           <p>
-            At <strong>Socializen</strong>, we help brands expand their digital presence with innovative content, 
-            data-driven strategies, and end-to-end social media management.
+            At{" "}
+            <span className="text-[#000] font-semibold">Socializzen</span>, we
+            help brands build meaningful connections with their audience by
+            combining creativity, data, and strategy.
           </p>
-          <p className="mt-4">
-            From viral campaigns to influencer marketing and reputation management, we make your brand shine across every platform.
+          <p className="mt-3">
+            From eye-catching content to performance-driven campaigns, we
+            transform your social presence into a powerful growth engine that
+            drives engagement, trust, and long-term success.
           </p>
-        </div>
+        </motion.div>
       </motion.div>
 
-      {/* Section 2: Dashboard Features */}
+      {/* ✅ Bar Graphs Section */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
         viewport={{ once: true }}
-        className="max-w-6xl mx-auto grid md:grid-cols-2 items-center gap-12"
+        className="max-w-6xl mx-auto mt-20 flex justify-between gap-6 items-end h-80"
       >
-        {/* Features */}
-        <div>
-          <h2 className="text-3xl font-semibold mb-8">User-Friendly Dashboard</h2>
-          <ul className="space-y-6 text-gray-700 text-base">
-            {[
-              {
-                icon: <BarChartBig className="text-indigo-600 w-6 h-6 mt-1" />,
-                title: 'Real-Time Analytics',
-                desc: 'Get instant performance insights and audience metrics.',
-              },
-              {
-                icon: <FileText className="text-indigo-600 w-6 h-6 mt-1" />,
-                title: 'Custom Reports',
-                desc: 'View tailored reports to monitor growth trends.',
-              },
-              {
-                icon: <Smartphone className="text-indigo-600 w-6 h-6 mt-1" />,
-                title: 'Mobile Optimized',
-                desc: 'Manage your campaigns from any device.',
-              },
-              {
-                icon: <BellRing className="text-indigo-600 w-6 h-6 mt-1" />,
-                title: 'Instant Notifications',
-                desc: 'Get notified of key events and earnings in real time.',
-              },
-            ].map((feature, index) => (
-              <li key={index} className="flex items-start gap-4">
-                {feature.icon}
-                <div>
-                  <strong className="block font-medium">{feature.title}</strong>
-                  <span>{feature.desc}</span>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {stats.map((stat, i) => (
+          <motion.div
+            key={i}
+            variants={fadeUp}
+            className="flex flex-col items-center flex-1"
+          >
+            <motion.span
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: i * 0.25 }}
+              className="text-[#7654A0] font-bold mb-2 text-lg"
+            >
+              {stat.value}%
+            </motion.span>
 
-        {/* GIF */}
-        <div className="flex justify-center">
-          <motion.img
-            src="https://static.vecteezy.com/system/resources/previews/006/470/817/original/isometric-style-illustration-about-social-media-marketing-strategy-with-smartphone-and-icon-free-vector.jpg"
-            alt="Dashboard Visual"
-            className="w-full max-w-md rounded-2xl shadow-xl"
-            initial={{ scale: 0.95 }}
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: 'spring', stiffness: 300 }}
-          />
-        </div>
+            <div className="w-full bg-gray-200 rounded-md h-64 md:h-72 relative overflow-hidden shadow-inner">
+              <motion.div
+                initial={{ height: "0%" }}
+                whileInView={{ height: `${stat.value}%` }}
+                transition={{
+                  duration: 1,
+                  ease: "easeOut",
+                  delay: i * 0.2,
+                  type: "spring",
+                }}
+                viewport={{ once: true }}
+                className="absolute bottom-0 w-full rounded-md bg-gradient-to-t from-[#7654A0] to-[#A78BFA] shadow-lg"
+              ></motion.div>
+            </div>
+
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.3 }}
+              viewport={{ once: true }}
+              className="mt-3 text-sm text-gray-700 font-semibold"
+            >
+              {stat.platform}
+            </motion.span>
+          </motion.div>
+        ))}
       </motion.div>
 
-      {/* Section 3: Promotion Features */}
+      {/* ✅ Features Section (No Icons, Premium Look) */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
         viewport={{ once: true }}
-        className="max-w-6xl mx-auto grid md:grid-cols-2 items-center gap-12"
+        className="max-w-6xl mx-auto mt-20 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 text-center"
       >
-        {/* GIF or illustration can be added here if desired */}
-        <div className="flex justify-center">
-          <motion.img
-            src="https://cdn.prod.website-files.com/63a9fb94e473f36dbe99c1b1/66c49a0b6795c68b3555fc24_0012.gif"
-            alt="Promotion Visual"
-            className="w-full max-w-md rounded-2xl shadow-xl"
-            initial={{ scale: 0.95 }}
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: 'spring', stiffness: 300 }}
-          />
-        </div>
-
-        {/* Features */}
-        <div>
-          <h2 className="text-3xl font-semibold mb-8">Easy Promotion Tools</h2>
-          <ul className="space-y-6 text-gray-700 text-base">
-            {[
-              {
-                icon: <Link2 className="text-pink-500 w-6 h-6 mt-1" />,
-                title: 'Affiliate Link Generator',
-                desc: 'Create and share links across all channels easily.',
-              },
-              {
-                icon: <Megaphone className="text-pink-500 w-6 h-6 mt-1" />,
-                title: 'Marketing Materials',
-                desc: 'Access headlines, images, creatives and more.',
-              },
-              {
-                icon: <Share2 className="text-pink-500 w-6 h-6 mt-1" />,
-                title: 'Multi-Platform Promotion',
-                desc: 'Distribute content on YouTube, Twitter, Telegram etc.',
-              },
-              {
-                icon: <ShieldCheck className="text-pink-500 w-6 h-6 mt-1" />,
-                title: 'Influencer Support',
-                desc: 'Get assistance for acquisition and outreach strategies.',
-              },
-            ].map((feature, index) => (
-              <li key={index} className="flex items-start gap-4">
-                {feature.icon}
-                <div>
-                  <strong className="block font-medium">{feature.title}</strong>
-                  <span>{feature.desc}</span>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {features.map((feature, i) => (
+          <motion.div
+            key={i}
+            variants={fadeUp}
+            whileHover={{
+              scale: 1.05,
+              backgroundColor: "#f9f5ff",
+              boxShadow: "0px 8px 25px rgba(118,84,160,0.2)",
+            }}
+            transition={{ type: "spring", stiffness: 200, damping: 12 }}
+            className="flex flex-col items-center justify-center p-6 rounded-2xl shadow-sm bg-white transition-all"
+          >
+            <p className="font-semibold text-gray-800 text-sm md:text-base">
+              {feature}
+            </p>
+          </motion.div>
+        ))}
       </motion.div>
     </section>
   );

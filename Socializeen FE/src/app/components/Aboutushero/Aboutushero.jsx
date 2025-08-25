@@ -1,124 +1,124 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
-import logo from "./Socializzen logo.png"
 
-export default function Aboutushero() {
+export default function AboutUsHero() {
+  // Variants for text animation
+  const textVariant = {
+    hidden: { opacity: 0, y: 40 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.25,
+        duration: 0.8,
+        ease: 'easeOut',
+      },
+    }),
+  };
+
   return (
-    <section className="bg-white min-h-screen px-6 md:px-20 py-16 font-altruist">
-      {/* Header Text */}
+    <motion.section
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+      className="relative bg-white py-24 font-altruist flex flex-col items-center justify-center overflow-hidden"
+    >
+      {/* Floating Background Glows */}
       <motion.div
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center"
-      >
-        <h1 className="text-3xl md:text-5xl font-semibold text-black leading-snug">
-          EMPOWERING FUTURES
-          <span className="inline-block mx-2 align-middle">
-            <Image src={logo} width={40} height={40} alt="icon" />
-          </span>
-          THROUGH
-          <br />
-          <span className="text-purple-600">COMPREHENSIVE ONLINE</span> PLATFORM
-        </h1>
-        <p className="mt-4 max-w-2xl mx-auto text-gray-600 text-sm md:text-base">
-          Founded on the Principles of Bridging Knowledge and Practice, VinEdu was born out of a
-          shared belief in the power of education and innovation to shape a better future.
-        </p>
-        <button className="mt-6 px-6 py-2 bg-gray-100 rounded-full text-sm hover:bg-gray-200">
-          SCROLL TO KNOW MORE
-        </button>
-      </motion.div>
+        initial={{ y: 0 }}
+        animate={{ y: [0, 25, 0] }}
+        transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }}
+        className="absolute top-10 left-10 w-28 h-28 bg-purple-200 rounded-full blur-3xl opacity-40"
+      />
+      <motion.div
+        initial={{ y: 0 }}
+        animate={{ y: [0, -30, 0] }}
+        transition={{ repeat: Infinity, duration: 7, ease: 'easeInOut' }}
+        className="absolute bottom-20 right-12 w-40 h-40 bg-purple-300 rounded-full blur-3xl opacity-30"
+      />
 
-      {/* Cards Grid */}
-      <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="bg-orange-100 rounded-xl flex items-center justify-center h-40 text-orange-600 text-lg font-semibold"
+      {/* Content */}
+      <div className="w-full text-center relative z-10 flex flex-col gap-8 max-w-5xl px-6 md:px-12">
+        {/* Animated Header */}
+        <motion.h1
+          className="text-3xl md:text-5xl font-semibold text-gray-900 leading-snug tracking-tight"
         >
-          Block Chain
-        </motion.div>
+          <motion.span
+            variants={textVariant}
+            initial="hidden"
+            animate="visible"
+            custom={0}
+            className="block"
+          >
+            Driving Growth With
+          </motion.span>
+        </motion.h1>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
+        {/* Animated Paragraph */}
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="bg-purple-100 rounded-xl flex items-center justify-center h-40 text-purple-600 text-lg font-semibold"
+          viewport={{ once: true }}
+          transition={{ delay: 0.6, duration: 0.8, ease: 'easeOut' }}
+          className="max-w-3xl mx-auto text-gray-700 text-base md:text-lg leading-relaxed font-light"
         >
-          Data Science
-        </motion.div>
+          At <span className="font-semibold text-purple-700">Socializzen</span>, we believe in
+          transforming ideas into impactful digital experiences. Our mission is to help brands
+          connect, engage, and grow with elegance and innovation.
+        </motion.p>
 
+        {/* Call to Actions */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="rounded-xl overflow-hidden h-40"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{
+            delay: 1,
+            duration: 0.6,
+            type: 'spring',
+            stiffness: 120,
+          }}
+          className="flex flex-wrap justify-center gap-5"
         >
-          <Image
-            src="https://th.bing.com/th/id/R.583bbfeb87ab0fea962bc837f02df26e?rik=9TzIMpvPaIQDnA&riu=http%3a%2f%2fstatic1.squarespace.com%2fstatic%2f5e59eefe0e4624584d852c64%2f5e59ef60483fcf20331ab604%2f64ffce954ec4a410f68d93eb%2f1694486720883%2fgiphy.gif%3fformat%3d1500w&ehk=oJ%2f8DycMDq7Y49mwFKXDW0IglbkjHInCmlzKMxwl80I%3d&risl=&pid=ImgRaw&r=0"
-            alt="man"
-            width={300}
-            height={300}
-            className="w-full h-full object-cover"
-            unoptimized // required for external gif
-          />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="bg-purple-600 rounded-xl flex items-center justify-center h-40 text-white text-lg font-semibold"
-        >
-          System Design
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="bg-gray-100 rounded-xl flex items-center justify-center h-40"
-        >
-          <Image src="/images/robot.png" alt="robot" width={60} height={60} />
-        </motion.div>
-
-        <motion.div
-  initial={{ opacity: 0, y: 40 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.9 }}
-  className="rounded-xl overflow-hidden h-40"
->
-  <img
-    src="https://smallbusinesssurgeon.com/wp-content/uploads/2023/09/357082738710Startup_Marketing_Service.gif"
-    alt="woman"
-    className="w-full h-full object-cover"
-  />
-</motion.div>
-
-
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.0 }}
-          className="bg-blue-100 rounded-xl flex items-center justify-center h-40 text-blue-600 text-lg font-semibold"
-        >
-          Web Development
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1 }}
-          className="bg-yellow-100 rounded-xl flex items-center justify-center h-40 text-yellow-600 text-lg font-semibold"
-        >
-          Machine Learning
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-6 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-purple-800 text-white text-sm md:text-base font-medium shadow-lg hover:shadow-purple-400/50 transition-all"
+            aria-label="Discover more about Socializzen"
+          >
+            Discover More
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-6 py-2 rounded-xl bg-white text-gray-900 border border-gray-300 text-sm md:text-base font-medium shadow hover:shadow-md transition-all"
+            aria-label="Contact Socializzen team"
+          >
+            Contact Us
+          </motion.button>
         </motion.div>
       </div>
-    </section>
+
+      {/* About Video Section (Responsive with animation) */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 1.2, duration: 0.8, ease: 'easeOut' }}
+        className="mt-16 relative w-full max-w-[95%] mx-auto"
+      >
+        <motion.video
+          src="/video/about section video.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          whileHover={{ scale: 1.02 }}
+          transition={{ type: 'spring', stiffness: 100 }}
+          className="w-full h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[70vh] object-cover shadow-xl rounded-3xl"
+        />
+      </motion.div>
+    </motion.section>
   );
 }
-

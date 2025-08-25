@@ -51,7 +51,7 @@ export default function OurVideos() {
         <div>
           <p className="text-gray-500 text-sm tracking-wide uppercase mb-3">Our Shorts</p>
           <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-            Engaging <span style={{ color: "#7a5af8" }}>YouTube Shorts</span>
+            Engaging <span style={{ color: "#7654A0" }}>YouTube Shorts</span>
           </h1>
         </div>
         <motion.div 
@@ -104,17 +104,8 @@ export default function OurVideos() {
         ))}
       </motion.div>
 
-      {/* --- Load More Button --- */}
-      {visibleCount < shortsLinks.length && (
-        <motion.button
-          onClick={handleLoadMore}
-          className="block mx-auto px-8 py-3 mt-14 text-white font-medium rounded-full shadow-lg transition duration-300"
-          style={{ backgroundColor: "#7a5af8" }}
-          whileTap={{ scale: 0.96 }}
-        >
-          Load More
-        </motion.button>
-      )}
+
+      
     </section>
   );
 }
