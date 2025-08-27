@@ -3,7 +3,7 @@
 import React from 'react'
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer";
-import GoToTop from "../components/GoToTop/GoToTop";s
+import GoToTop from "../components/GoToTop/GoToTop";
 const services = () => {
   return (
     <div>
