@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.wave-divider {
+  -webkit-mask-image: radial-gradient(circle at 50% 100%, #fdfdfd 45%, transparent 46%);
+  -webkit-mask-repeat: repeat-x;
+  -webkit-mask-size: 60px 100%;
+  mask-image: radial-gradient(circle at 50% 100%, #f5efef 45%, transparent 46%);
+  mask-repeat: repeat-x;
+  mask-size: 60px 100%;
+}
+
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 1.2s ease-out forwards;
+}
+
+@layer utilities {
+  .animate-scroll {
+    animation: scroll-left 18s linear infinite; /* faster scroll */
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
