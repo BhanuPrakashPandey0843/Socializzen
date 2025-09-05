@@ -17,7 +17,7 @@ https://www.behance.net/gallery/226254819/Futuristic-AI-Powered-Crypto-Automatio
 
 
 git add . 
-git commit -m "added the new file to fix vercel "
+git commit -m "added the errors "
 git push origin main 
 
 
