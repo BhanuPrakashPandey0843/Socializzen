@@ -2,35 +2,45 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+// Import local images
+import one from "./work/one.png";
+import two from "./work/two.jpg";
+import three from "./work/three.jpg";
+import four from "./work/four.jpg";
+import five from "./work/five.jpg";
+import six from "./work/six.jpg";
+import seven from "./work/seven.jpg";
+import eight from "./work/eight.jpg";
+import ten from "./work/ten.jpg";
+import eleven from "./work/eleven.jpg";
+import muscle from "./work/muscle_studio.jpg";
+import pratik from "./work/pratik_restaurant.jpg";
+import wedding from "./work/ppf_wedding.jpg";
+import ppf from "./work/PPF_20250421_152935_0000.jpg";
+import rainbow from "./work/rainbow_watermelon.jpg";
+import hiring from "./work/we_are_hiring.png";
+
+// Array with both local and remote images
 const images = [
-  'https://wallpaperaccess.com/full/2858973.jpg',
-  'https://wallpaperaccess.com/full/2859136.jpg',
-  'https://wallpaperaccess.com/full/2859138.jpg',
-  'https://wallpaperaccess.com/full/2858987.jpg',
-  'https://wallpaperaccess.com/full/538825.jpg',
-  'https://wallpaperaccess.com/full/8053155.jpg',
-  'https://wallpapercave.com/wp/wp9589913.jpg',
-  'https://wallpaper.dog/large/5503686.jpg',
-  'https://wallpaper.dog/large/5503782.jpg',
-  'https://i.etsystatic.com/14740891/r/il/ca1372/2015071909/il_300x300.2015071909_evf4.jpg',
-  'https://img.freepik.com/premium-photo/amazing-wallpaper-4k-background_839182-1509.jpg',
-  'https://wallpaper.dog/large/5503610.jpg',
-  'https://wallpaperaccess.com/full/2859150.jpg',
-  'https://cdn.wallpapersafari.com/98/83/8Mav7F.jpg',
-  'https://i.pinimg.com/736x/d9/f3/90/d9f390212dab74e16716dd24cc622b37.jpg',
-  'https://wallpapers.com/images/hd/tall-trees-all-best-d2c1o7sb66t45lgc.jpg',
+  one, two, three, four, five, six, seven, eight,
+  ten, eleven, muscle, pratik, wedding, ppf, rainbow, hiring,
+
+  // remote ones
   'https://tse3.mm.bing.net/th/id/OIP.X6sCY09Z_ZQF8AvWi2-55gHaLD?rs=1&pid=ImgDetMain&o=7&rm=3',
   'https://tse2.mm.bing.net/th/id/OIP.thpdM2vrU7vQTBKcvEZm2AHaNK?rs=1&pid=ImgDetMain&o=7&rm=3'
 ];
 
 const categories = [
-  'Birds', 'Animals', 'Forest', 'Abstract', 'Love',
-  'Culture', 'Beach', 'Cute', 'City',
+  'Gym', 'Animals', 'Drink', 'Abstract', 'Love',
+  'Culture', 'Wedding', 'Food', 'City',
   'Food', 'Dog', 'Art', 'Nature', 'Flowers'
 ];
 
 const OurWorkHero = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+
+  // Helper to resolve image path
+  const getImageSrc = (img) => (typeof img === "string" ? img : img.src);
 
   return (
     <div className="bg-white py-12 md:py-20 px-4 md:px-12 lg:px-20 min-h-screen">
@@ -45,7 +55,7 @@ const OurWorkHero = () => {
           Our <span className="text-[#7654A0]">Work</span>
         </h1>
         <p className="mt-4 text-[#A38FC2] font-medium">
-          50000+ High Resolution 4K Wallpapers
+          Some of our sample work.
         </p>
         <motion.button
           whileHover={{ scale: 1.05 }}
@@ -79,7 +89,7 @@ const OurWorkHero = () => {
             >
               <div 
                 className="h-44 sm:h-56 md:h-64 bg-cover bg-center"
-                style={{ backgroundImage: `url(${img})` }}
+                style={{ backgroundImage: `url(${getImageSrc(img)})` }}
               />
               <div className="text-center py-2 font-medium text-[#7654A0] capitalize text-sm sm:text-base md:text-lg">
                 {categories[index] || 'Wallpaper'}
@@ -100,7 +110,7 @@ const OurWorkHero = () => {
             onClick={() => setSelectedImage(null)}
           >
             <motion.img 
-              src={selectedImage} 
+              src={getImageSrc(selectedImage)} 
               alt="Wallpaper" 
               className="max-h-[90%] max-w-[90%] rounded-xl shadow-2xl"
               initial={{ scale: 0.8 }}
