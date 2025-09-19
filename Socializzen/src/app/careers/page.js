@@ -3,8 +3,8 @@
 import React from 'react'
 import Navbar from "../components/Navbar/Navbar";
 import Serviceshero from "../components/Serviceshero/Serviceshero"
-
-import Services from "../components/Services/Services"
+import Service from "../components/service/service";
+import Reviews from "../components/Reviews/Reviews";
 import Footer from "../components/Footer";
 import GoToTop from "../components/GoToTop/GoToTop";
 const careers = () => {
@@ -13,7 +13,8 @@ const careers = () => {
        <Navbar />
        <Serviceshero />
        
-       <Services />
+       <Service />
+       <Reviews />
       <GoToTop />
       <Footer />
     </div>
